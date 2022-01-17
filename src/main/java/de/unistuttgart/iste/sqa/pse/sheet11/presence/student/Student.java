@@ -1,4 +1,4 @@
-package de.unistuttgart.iste.sqa.pse.sheet11.presence.example;
+package de.unistuttgart.iste.sqa.pse.sheet11.presence.student;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Student {
     private final String name;
-    private Date birthday;
+    private final Date birthday;
 
     public Student(final String name, final Date birthday) {
         this.name = name;
