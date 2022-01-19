@@ -45,8 +45,8 @@ final class BuggyCalculator implements Calculator {
 	 * calculates the sign of the result when dividing or multiplying to integer
 	 * numbers
 	 * 
-	 * @param n the first number
-	 * @param m the second number
+	 * @param dividend the first number
+	 * @param divisor the second number
 	 * @return -1 if the result is smaller than 0, 1 otherwise
 	 */
 	private int getResultSign(final int dividend, final int divisor) {

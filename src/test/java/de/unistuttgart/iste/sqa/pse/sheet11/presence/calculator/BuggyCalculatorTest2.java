@@ -1,13 +1,9 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.BuggyCalculator;
-import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.Calculator;
 
 public class BuggyCalculatorTest2 {
 
@@ -19,7 +15,7 @@ public class BuggyCalculatorTest2 {
 	}
 
 	@Test
-	public void testAddExcat() {
+	public void testAddExact() {
 		int result = calculator.addExact(25, 41);
 		assertEquals(66, result);
 
