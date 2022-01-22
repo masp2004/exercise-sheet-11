@@ -1,9 +1,10 @@
-package de.unistuttgart.iste.sqa.pse.sheet11.presence.student;
+package de.unistuttgart.iste.sqa.pse.sheet11.tests.presence.student;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.student.Student;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -5,7 +5,7 @@ package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
  * A Calculator. It has Bugs.
  *
  */
-final class BuggyCalculator implements Calculator {
+public final class BuggyCalculator implements Calculator {
 
 	@Override
 	public int add(final int summand1, final int summand2) {

@@ -1,8 +1,10 @@
-package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
+package de.unistuttgart.iste.sqa.pse.sheet11.tests.presence.calculator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.BuggyCalculator;
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.Calculator;
 import org.junit.Before;
 import org.junit.Test;
 
