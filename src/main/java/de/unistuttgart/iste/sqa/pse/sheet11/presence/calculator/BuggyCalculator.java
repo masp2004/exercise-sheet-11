@@ -32,17 +32,14 @@ public final class BuggyCalculator implements Calculator {
 		return posQuotient * getResultSign(dividend, divisor);
 	}
 	
-	/*
-	 * @ensures dividend < 0 & divisor < 0 ==> \result = 1
-	 * 
-	 * @ensures dividend > 0 & divisor > 0 ==> \result = 1
-	 * 
-	 * @ensures dividend < 0 & divisor > 0 ==> \result = -1
-	 * 
-	 * @ensures dividend > 0 & divisor < 0 ==> \result = -1
-	 */
+	/*@
+	 @ ensures (dividend < 0 && divisor < 0 ==> \result == 1)
+	 @ && (dividend > 0 && divisor > 0 ==> \result == 1)
+	 @ && (dividend < 0 && divisor > 0 ==> \result == -1)
+	 @ && (dividend > 0 && divisor < 0 ==> \result == -1);
+	 @*/
 	/**
-	 * calculates the sign of the result when dividing or multiplying to integer
+	 * Calculates the sign of the result when dividing or multiplying to integer
 	 * numbers
 	 * 
 	 * @param dividend the first number
