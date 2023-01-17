@@ -20,7 +20,6 @@ public class BuggyCalculatorTest2 {
 	public void testAddExact() {
 		int result = calculator.addExact(25, 41);
 		assertEquals(66, result);
-
 	}
 
 	@Test(expected = ArithmeticException.class)
@@ -60,7 +59,6 @@ public class BuggyCalculatorTest2 {
 	public void test8() {
 		int result = calculator.addExact(0, 0);
 		assertEquals(0, result);
-
 	}
 
 	@Test
@@ -74,5 +72,4 @@ public class BuggyCalculatorTest2 {
 		int result = calculator.abs(Integer.MAX_VALUE);
 		assertEquals(Integer.MAX_VALUE, result);
 	}
-
 }
