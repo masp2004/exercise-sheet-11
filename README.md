@@ -25,7 +25,7 @@ For the homework part you need to create your own classes and package (the namin
   mvn clean test -Dtest=BuggyCalculatorTest2
   ```
   
-  StudentTest2
+  StudentTest
   ```sh
   mvn clean test -Dtest=StudentTest
   ```
