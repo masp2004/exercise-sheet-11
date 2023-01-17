@@ -13,3 +13,18 @@ For the homework part you need to create your own classes and package (the namin
 * Open and run in Eclipse
 * Open and run in IntelliJ
 * Open and run in VSCode
+* Run using CLI
+ BuggyCalculatorTest
+ ```sh
+  mvn clean test -Dtest=BuggyCalculatorTest
+  ```
+  
+  BuggyCalculatorTest2
+  ```sh
+  mvn clean test -Dtest=BuggyCalculatorTest2
+  ```
+  
+  StudentTest2
+  ```sh
+  mvn clean test -Dtest=StudentTest
+  ```
