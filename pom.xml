@@ -6,12 +6,12 @@
 	<artifactId>exercise-sheet-11</artifactId>
 	<version>1.0.0</version>
 	<name>exercise-sheet-11</name>
-
+	
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+    		<groupId>org.junit.jupiter</groupId>
+   	 		<artifactId>junit-jupiter-engine</artifactId>
+    		<version>5.10.0</version>
 		</dependency>
 	</dependencies>
 

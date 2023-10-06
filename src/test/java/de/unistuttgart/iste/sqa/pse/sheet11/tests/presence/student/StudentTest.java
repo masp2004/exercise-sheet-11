@@ -1,12 +1,17 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.tests.presence.student;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import de.unistuttgart.iste.sqa.pse.sheet11.presence.student.Student;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Date;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * This class is for explanatory use only.
@@ -14,7 +19,7 @@ import org.junit.Test;
 public class StudentTest {
 	private Student student;
 
-	@Before
+	@BeforeAll
 	public void setUp() {
 		Date birthdate = new Date(100, 1, 1);
 		student = new Student("Max Mustermann", birthdate);
@@ -41,8 +46,8 @@ public class StudentTest {
 		student.bornBefore(null);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test
 	public void testNullException() {
-		student.bornBefore(null);
+		assertThrows(NullPointerException.class, () -> student.bornBefore(null));
 	}
 }

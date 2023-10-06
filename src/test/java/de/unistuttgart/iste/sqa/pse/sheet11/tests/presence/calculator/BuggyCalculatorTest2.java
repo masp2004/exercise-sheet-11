@@ -1,17 +1,21 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.tests.presence.calculator;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.BuggyCalculator;
 import de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator.Calculator;
-import org.junit.Before;
-import org.junit.Test;
+
 
 public class BuggyCalculatorTest2 {
 
 	private Calculator calculator;
 
-	@Before
+	@BeforeAll
 	public void setUp() {
 		calculator = new BuggyCalculator();
 	}
@@ -22,14 +26,14 @@ public class BuggyCalculatorTest2 {
 		assertEquals(66, result);
 	}
 
-	@Test(expected = ArithmeticException.class)
+	@Test
 	public void test2() {
-		calculator.addExact(Integer.MAX_VALUE, 1);
+		assertThrows(ArithmeticException.class, () -> calculator.addExact(Integer.MAX_VALUE, 1));
 	}
 
-	@Test(expected = ArithmeticException.class)
+	@Test
 	public void test3() {
-		calculator.addExact(Integer.MIN_VALUE, -1);
+		assertThrows(ArithmeticException.class, () -> calculator.addExact(Integer.MIN_VALUE, -1));
 	}
 
 	@Test
@@ -44,9 +48,9 @@ public class BuggyCalculatorTest2 {
 		assertEquals(4, result);
 	}
 
-	@Test(expected = ArithmeticException.class)
+	@Test
 	public void test6() {
-		calculator.abs(Integer.MIN_VALUE);
+		assertThrows(ArithmeticException.class, () -> calculator.abs(Integer.MIN_VALUE));
 	}
 
 	@Test
