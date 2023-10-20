@@ -7,13 +7,18 @@
 	<version>1.0.0</version>
 	<name>exercise-sheet-11</name>
 	
+	<properties>
+		<hamster.version>5.0.0</hamster.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
-    		<groupId>org.junit.jupiter</groupId>
-   	 		<artifactId>junit-jupiter-engine</artifactId>
-    		<version>5.10.0</version>
+			<groupId>de.hamstersimulator.objectsfirst</groupId>
+			<artifactId>main</artifactId>
+			<version>${hamster.version}</version>
 		</dependency>
 	</dependencies>
+
 
 	<pluginRepositories>
 		<pluginRepository>
