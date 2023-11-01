@@ -89,7 +89,7 @@ public class Tournament {
 		return new ArrayList<Team>(this.teams.values());
 	}
 	
-	// TODO add operations for presence exercise 1 (d) and (e) here.
+	// TODO add operations for presence exercise 1 (c) and (d) here.
 	
 	@Override
 	public int hashCode() {
