@@ -3,7 +3,7 @@ package de.unistuttgart.iste.sqa.pse.sheet11.homework;
 import de.hamstersimulator.objectsfirst.external.simple.game.SimpleHamsterGame;
 
 /**
- * Class to implement exercises sheet 1, exercises 1, 2 and 3.
+ * Class to implement homework exercises 1, 2 and 3 of sheet 11.
  */
 public class MemoryHamsterGame extends SimpleHamsterGame {
 
@@ -24,31 +24,31 @@ public class MemoryHamsterGame extends SimpleHamsterGame {
 		this.reverseOrder();
 		this.sort();
 		
-		// TODO Add code for exercise 3 (d) here
+		// TODO Add code for homework exercise 3 (d) here
 	}
 	
 	/**
 	 * TODO 
 	 */
 	private void reverseOrder() {
-		// TODO implement exercise 1 (b)
+		// TODO implement homework exercise 1 (b)
 	}
 	
 	/**
 	 * TODO
 	 */
 	private void inOrder() {
-		// TODO implement exercise 2 (b)
+		// TODO implement homework exercise 2 (b)
 	}
 	
 	/**
 	 * TODO
 	 */
 	private void sort() {
-		// TODO implement exercise 3 (b)
+		// TODO implement homework exercise 3 (b)
 	}
 	
-	// TODO Add Operation for exercise 3 (c) here
+	// TODO Add Operation for homework exercise 3 (c) here
 	
 	// TODO Add required helper operations here
 }
