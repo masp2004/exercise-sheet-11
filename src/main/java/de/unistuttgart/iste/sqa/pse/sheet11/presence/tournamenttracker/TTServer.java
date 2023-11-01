@@ -4,11 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
- */
-
-
-/**
  * Provides a Tournament Server with the functionality to create sports tournaments. 
  * 
  * @author andrevanhoorn
@@ -18,7 +13,10 @@ public class TTServer {
 	private static final TTServer instance = new TTServer();
 	
 	private final Map<String,Tournament> tournaments = new HashMap<String,Tournament>(); 
-	
+
+	/**
+	 * Private constructor to prevent instantiation.
+	 */
 	private TTServer() {
 		
 	}
@@ -26,8 +24,8 @@ public class TTServer {
 	/**
 	 * Creates and registers a new tournament with the given name.
 	 * 
-	 * @param name
-	 * @return
+	 * @param name name of the tournament
+	 * @return the new tournament
 	 */
 	public Tournament createTournament(String name) {
 		Tournament newTournament = null; 
@@ -44,7 +42,7 @@ public class TTServer {
 	/**
 	 * Returns the singleton instance of the Tournament Server.
 	 * 
-	 * @return
+	 * @return the singleton instance of the Tournament Server.
 	 */
 	public static TTServer getInstance() {
 		return TTServer.instance;

@@ -15,7 +15,7 @@ public class Team {
 	/**
 	 * Creates a new team with the given name;
 	 * 
-	 * @param name
+	 * @param name name of the team
 	 */
 	public Team(String name) {
 		this.name = name;
@@ -24,7 +24,7 @@ public class Team {
 	/**
 	 * Returns the name of this team.
 	 * 
-	 * @return
+	 * @return name of this team
 	 */
 	public String getName() {
 		return name;

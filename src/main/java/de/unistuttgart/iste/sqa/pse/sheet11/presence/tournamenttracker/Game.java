@@ -19,10 +19,10 @@ public class Game {
 
 
 	/**
-	 * Creates a new team between the given home team and visiting team. 
+	 * Creates a new game between the given home team and visiting team.
 	 * 
-	 * @param homeTeam
-	 * @param vistingTeam
+	 * @param homeTeam the home team
+	 * @param vistingTeam the visiting team
 	 */
 	public Game(Team homeTeam, Team vistingTeam) {
 		this.homeTeam = homeTeam;
@@ -32,8 +32,8 @@ public class Game {
 	/**
 	 * Stores the result of this game if not set before. 
 	 * 
-	 * @param scoreHome
-	 * @param scoreVisiting
+	 * @param scoreHome	score of the home team
+	 * @param scoreVisiting score of the visiting team
 	 */
 	public void storeResult(int scoreHome, int scoreVisiting) {
 		if (this.scoreHome != SCORE_NOT_STORED || this.scoreVisiting != SCORE_NOT_STORED) {
@@ -44,6 +44,11 @@ public class Game {
 		this.scoreVisiting = scoreVisiting;
 	}
 
+	/**
+	 * Get the home team.
+	 *
+	 * @return the home team
+	 */
 	public Team getHomeTeam() {
 		return homeTeam;
 	}
@@ -85,14 +90,29 @@ public class Game {
 		return true;
 	}
 
+	/**
+	 * Get the visiting team.
+	 *
+	 * @return the visiting team
+	 */
 	public Team getVisitingTeam() {
 		return visitingTeam;
 	}
 
+	/**
+	 * Get the score of the home team.
+	 *
+	 * @return the score of the home team
+	 */
 	public int getScoreHome() {
 		return scoreHome;
 	}
 
+	/**
+	 * Get the score of the visiting team.
+	 *
+	 * @return the score of the visiting team
+	 */
 	public int getScoreVisiting() {
 		return scoreVisiting;
 	}

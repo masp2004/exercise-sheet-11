@@ -25,7 +25,7 @@ public class Tournament {
 	/**
 	 * Creates a new Tournament with the given name.
 	 * 
-	 * @param name
+	 * @param name name of the tournament
 	 */
 	public Tournament(String name) {
 		this.name = name;
@@ -34,8 +34,8 @@ public class Tournament {
 	/**
 	 * Register a new team with the given name in this tournament if a team with this name has not been registered before. 
 	 * 
-	 * @param name
-	 * @return
+	 * @param name name of the team to be registered
+	 * @return the newly registered team
 	 */
 	public Team registerTeam(String name) {
 		Team newTeam = null;
@@ -52,9 +52,9 @@ public class Tournament {
 	 * 
 	 * Note that multiple games between the same team are possible.
 	 * 
-	 * @param homeTeam
-	 * @param vistingTeam
-	 * @return
+	 * @param homeTeam the home team
+	 * @param vistingTeam the visiting team
+	 * @return the game between the two teams
 	 */
 	public Game createGame(Team homeTeam, Team vistingTeam) {
 		Game newGame = new Game(homeTeam, vistingTeam);
@@ -62,29 +62,34 @@ public class Tournament {
 		return newGame;
 	}
 
+	/**
+	 * Get the name of the tournament.
+	 *
+	 * @return the tournament's name.
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Returns the list of registered games. Note that a new list is created on each call.
+	 * Get the list of registered games. Note that a new list is created on each call.
 	 * 
-	 * @return
+	 * @return the list of registered games
 	 */
 	public List<Game> getGames() {
-		return games;
+		return List.copyOf(games);
 	}
 	
 	/**
-	 * Returns the registered teams.
+	 * Get the registered teams.
 	 * 
-	 * @return
+	 * @return the registered teams
 	 */
 	public List<Team> getTeams() {
 		return new ArrayList<Team>(this.teams.values());
 	}
 	
-	// TODO add missing operations here. 
+	// TODO add operations for presence exercise 1 (d) and (e) here.
 	
 	@Override
 	public int hashCode() {
