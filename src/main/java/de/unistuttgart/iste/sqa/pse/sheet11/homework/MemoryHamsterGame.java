@@ -8,7 +8,7 @@ import de.hamstersimulator.objectsfirst.external.simple.game.SimpleHamsterGame;
 public class MemoryHamsterGame extends SimpleHamsterGame {
 
 	/**
-	 * Creates a new ArtemisPauleHamsterGame.<br>
+	 * Creates a new MemoryHamsterGame.<br>
 	 * Do not modify!
 	 */
 	public MemoryHamsterGame() {
@@ -28,21 +28,21 @@ public class MemoryHamsterGame extends SimpleHamsterGame {
 	}
 	
 	/**
-	 * TODO 
+	 * TODO add documentation here.
 	 */
 	private void reverseOrder() {
 		// TODO implement homework exercise 1 (b)
 	}
 	
 	/**
-	 * TODO
+	 * TODO add documentation here.
 	 */
 	private void inOrder() {
 		// TODO implement homework exercise 2 (b)
 	}
 	
 	/**
-	 * TODO
+	 * TODO add documentation here.
 	 */
 	private void sort() {
 		// TODO implement homework exercise 3 (b)

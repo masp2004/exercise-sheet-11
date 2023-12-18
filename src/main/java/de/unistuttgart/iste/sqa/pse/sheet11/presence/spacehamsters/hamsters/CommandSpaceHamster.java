@@ -1,4 +1,8 @@
-package de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters;
+package de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.hamsters;
+
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.Color;
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.SpaceShip;
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.SpecialAbility;
 
 /**
  * A space hamster in a commanding position.
