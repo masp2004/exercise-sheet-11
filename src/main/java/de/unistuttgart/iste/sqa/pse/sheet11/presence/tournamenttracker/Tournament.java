@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Represents a sports tournament with a set of teams and a list of games between the teams.
@@ -97,19 +98,25 @@ public class Tournament {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
-		Tournament other = (Tournament) obj;
-		if (games == null) {
-			if (other.games != null) return false;
-		} else if (!games.equals(other.games)) return false;
-		if (name == null) {
-			if (other.name != null) return false;
-		} else if (!name.equals(other.name)) return false;
-		if (teams == null) {
-			if (other.teams != null) return false;
-		} else if (!teams.equals(other.teams)) return false;
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Tournament other = (Tournament) obj;
+		if (!Objects.equals(games, other.games)) {
+			return false;
+		}
+		if (!Objects.equals(name, other.name)) {
+			return false;
+		}
+		if (!Objects.equals(teams, other.teams)) {
+			return false;
+		}
 		return true;
 	}
 

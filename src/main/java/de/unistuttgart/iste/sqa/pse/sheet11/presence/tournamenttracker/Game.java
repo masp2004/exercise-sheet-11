@@ -1,5 +1,7 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.presence.tournamenttracker;
 
+import java.util.Objects;
+
 /**
  * Represents a game between a home team and a visiting team, including the resulting score if set.
  *
@@ -62,18 +64,28 @@ public class Game {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
-		Game other = (Game) obj;
-		if (homeTeam == null) {
-			if (other.homeTeam != null) return false;
-		} else if (!homeTeam.equals(other.homeTeam)) return false;
-		if (scoreHome != other.scoreHome) return false;
-		if (scoreVisiting != other.scoreVisiting) return false;
-		if (visitingTeam == null) {
-			if (other.visitingTeam != null) return false;
-		} else if (!visitingTeam.equals(other.visitingTeam)) return false;
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Game other = (Game) obj;
+		if (!Objects.equals(homeTeam, other.homeTeam)) {
+			return false;
+		}
+		if (scoreHome != other.scoreHome) {
+			return false;
+		}
+		if (scoreVisiting != other.scoreVisiting) {
+			return false;
+		}
+		if (!Objects.equals(visitingTeam, other.visitingTeam)) {
+			return false;
+		}
 		return true;
 	}
 
