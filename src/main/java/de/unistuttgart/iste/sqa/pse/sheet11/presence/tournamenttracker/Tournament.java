@@ -20,24 +20,31 @@ public class Tournament {
 	/**
 	 * Creates a new Tournament with the given name.
 	 *
-	 * @param name name of the tournament
+	 * @param name name of the tournament, must not be null or empty
+	 * @throws IllegalArgumentException if name is null or empty
 	 */
-	public Tournament(String name) {
+	public Tournament(final String name) {
+		if (name == null || name.isEmpty()) {
+			throw new IllegalArgumentException("Name must not be null or empty");
+		}
 		this.name = name;
 	}
 
 	/**
 	 * Register a new team with the given name in this tournament if a team with this name has not been registered before.
 	 *
-	 * @param name name of the team to be registered
+	 * @param name name of the team to be registered, must not be null or empty
 	 * @return the newly registered team
+	 * @throws IllegalArgumentException if name is null or empty or a team with this name has already been registered
 	 */
-	public Team registerTeam(String name) {
-		Team newTeam = null;
+	public Team registerTeam(final String name) {
+		if (name == null || name.isEmpty()) {
+			throw new IllegalArgumentException("Name must not be null or empty");
+		}
 		if (this.teams.containsKey(name)) {
 			throw new IllegalArgumentException("Team with this name exists");
 		}
-		newTeam = new Team(name);
+		final Team newTeam = new Team(name);
 		teams.put(name, newTeam);
 		return newTeam;
 	}
@@ -51,8 +58,8 @@ public class Tournament {
 	 * @param vistingTeam the visiting team
 	 * @return the game between the two teams
 	 */
-	public Game createGame(Team homeTeam, Team vistingTeam) {
-		Game newGame = new Game(homeTeam, vistingTeam);
+	public Game createGame(final Team homeTeam, final Team vistingTeam) {
+		final Game newGame = new Game(homeTeam, vistingTeam);
 		this.games.add(newGame);
 		return newGame;
 	}
@@ -97,7 +104,7 @@ public class Tournament {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}

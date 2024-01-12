@@ -19,10 +19,17 @@ public class Game {
 	/**
 	 * Creates a new game between the given home team and visiting team.
 	 *
-	 * @param homeTeam the home team
-	 * @param vistingTeam the visiting team
+	 * @param homeTeam the home team, must not be null
+	 * @param vistingTeam the visiting team, must not be null
+	 * @throws IllegalArgumentException if homeTeam or visitingTeam is null
 	 */
-	public Game(Team homeTeam, Team vistingTeam) {
+	public Game(final Team homeTeam, final Team vistingTeam) {
+		if (homeTeam == null) {
+			throw new IllegalArgumentException("Home team must not be null");
+		}
+		if (vistingTeam == null) {
+			throw new IllegalArgumentException("Visiting team must not be null");
+		}
 		this.homeTeam = homeTeam;
 		this.visitingTeam = vistingTeam;
 	}
@@ -32,8 +39,9 @@ public class Game {
 	 *
 	 * @param scoreHome	score of the home team
 	 * @param scoreVisiting score of the visiting team
+	 * @throws IllegalStateException if the score has already been stored
 	 */
-	public void storeResult(int scoreHome, int scoreVisiting) {
+	public void storeResult(final int scoreHome, final int scoreVisiting) {
 		if (this.scoreHome != SCORE_NOT_STORED || this.scoreVisiting != SCORE_NOT_STORED) {
 			throw new IllegalStateException("Score for this game already stored");
 		}
@@ -63,7 +71,7 @@ public class Game {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}

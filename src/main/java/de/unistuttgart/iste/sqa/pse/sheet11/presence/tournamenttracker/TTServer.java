@@ -22,17 +22,19 @@ public class TTServer {
 	/**
 	 * Creates and registers a new tournament with the given name.
 	 *
-	 * @param name name of the tournament
+	 * @param name name of the tournament, must not be null or empty
 	 * @return the new tournament
+	 * @throws IllegalArgumentException if name is null or empty or a tournament with this name has already been registered
 	 */
-	public Tournament createTournament(String name) {
-		Tournament newTournament = null;
+	public Tournament createTournament(final String name) {
+		if (name == null || name.isEmpty()) {
+			throw new IllegalArgumentException("Name must not be null or empty");
+		}
 		if (this.tournaments.containsKey(name)) {
 			throw new IllegalArgumentException("Tournament with the name exists");
-		} else {
-			newTournament = new Tournament(name);
-			this.tournaments.put(name, newTournament);
 		}
+		final Tournament newTournament = new Tournament(name);
+		this.tournaments.put(name, newTournament);
 		return newTournament;
 	}
 
