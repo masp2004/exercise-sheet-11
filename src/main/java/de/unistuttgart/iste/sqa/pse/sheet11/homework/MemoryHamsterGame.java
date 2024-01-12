@@ -19,36 +19,36 @@ public class MemoryHamsterGame extends SimpleHamsterGame {
 
 	@Override
 	protected void run() {
-		// Comment any operation call out, to run the others on their own.  
+		// Comment any operation call out, to run the others on their own.
 		this.inOrder();
 		this.reverseOrder();
 		this.sort();
-		
+
 		// TODO Add code for homework exercise 3 (d) here
 	}
-	
+
 	/**
 	 * TODO add documentation here.
 	 */
 	private void reverseOrder() {
 		// TODO implement homework exercise 1 (b)
 	}
-	
+
 	/**
 	 * TODO add documentation here.
 	 */
 	private void inOrder() {
 		// TODO implement homework exercise 2 (b)
 	}
-	
+
 	/**
 	 * TODO add documentation here.
 	 */
 	private void sort() {
 		// TODO implement homework exercise 3 (b)
 	}
-	
+
 	// TODO Add Operation for homework exercise 3 (c) here
-	
+
 	// TODO Add required helper operations here
 }

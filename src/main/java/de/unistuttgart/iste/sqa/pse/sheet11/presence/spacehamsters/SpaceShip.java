@@ -1,13 +1,12 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters;
 
+import de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.hamsters.SpaceHamster;
 import java.util.HashSet;
 import java.util.Set;
 
-import de.unistuttgart.iste.sqa.pse.sheet11.presence.spacehamsters.hamsters.SpaceHamster;
-
 /**
  * A spaceship with a crew of space hamsters.
- * 
+ *
  * The crew must never be null.
  */
 public class SpaceShip {
@@ -16,16 +15,15 @@ public class SpaceShip {
 
 	/**
 	 * Create a new space ship with an empty crew.
-	 * 
+	 *
 	 * Ensures that {@code this.crew != null} and {@code this.crew.isEmpty() == true}.
 	 */
 	public SpaceShip() {
 		this.crew = new HashSet<SpaceHamster>();
 	}
-	
-	
+
 	/**
-	 * 
+	 *
 	 * @param hamster
 	 */
 	public void addCrewMember(final SpaceHamster hamster) {
@@ -49,6 +47,5 @@ public class SpaceShip {
 	 */
 	public void repair() {
 		System.out.println("This ship is being repaired.");
-
 	}
 }

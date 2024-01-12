@@ -14,6 +14,8 @@ For the homework part you need to create your own classes and package (the namin
 * Open and run in IntelliJ
 * Open and run in VSCode
 * Run via Commandline 
-```sh
-mvn clean compile exec:java@$MAIN_CLASS
-```
+
+### Run the project via command line with Maven
+  ```sh
+  mvn clean compile exec:java@$MemoryHamsterGameApp
+  ```

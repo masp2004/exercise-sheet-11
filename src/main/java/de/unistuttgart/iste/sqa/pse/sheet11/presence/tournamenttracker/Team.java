@@ -1,11 +1,11 @@
 /**
- * 
+ *
  */
 package de.unistuttgart.iste.sqa.pse.sheet11.presence.tournamenttracker;
 
 /**
- * Represents a sports team. 
- * 
+ * Represents a sports team.
+ *
  * @author andrevanhoorn
  *
  */
@@ -14,7 +14,7 @@ public class Team {
 
 	/**
 	 * Creates a new team with the given name;
-	 * 
+	 *
 	 * @param name name of the team
 	 */
 	public Team(String name) {
@@ -23,7 +23,7 @@ public class Team {
 
 	/**
 	 * Returns the name of this team.
-	 * 
+	 *
 	 * @return name of this team
 	 */
 	public String getName() {
@@ -45,21 +45,13 @@ public class Team {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		Team other = (Team) obj;
 		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
+			if (other.name != null) return false;
+		} else if (!name.equals(other.name)) return false;
 		return true;
 	}
-
-
-	
 }

@@ -1,26 +1,25 @@
 /**
- * 
+ *
  */
 package de.unistuttgart.iste.sqa.pse.sheet11.presence.tournamenttracker;
 
 /**
  * Represents a game between a home team and a visiting team, including the resulting score if set.
- * 
+ *
  * @author andrevanhoorn
  *
  */
 public class Game {
 	private static final int SCORE_NOT_STORED = Integer.MIN_VALUE;
 
-	private final Team homeTeam; 
+	private final Team homeTeam;
 	private final Team visitingTeam;
 	private int scoreHome = SCORE_NOT_STORED;
 	private int scoreVisiting = SCORE_NOT_STORED;
 
-
 	/**
 	 * Creates a new game between the given home team and visiting team.
-	 * 
+	 *
 	 * @param homeTeam the home team
 	 * @param vistingTeam the visiting team
 	 */
@@ -30,8 +29,8 @@ public class Game {
 	}
 
 	/**
-	 * Stores the result of this game if not set before. 
-	 * 
+	 * Stores the result of this game if not set before.
+	 *
 	 * @param scoreHome	score of the home team
 	 * @param scoreVisiting score of the visiting team
 	 */
@@ -39,7 +38,7 @@ public class Game {
 		if (this.scoreHome != SCORE_NOT_STORED || this.scoreVisiting != SCORE_NOT_STORED) {
 			throw new IllegalStateException("Score for this game already stored");
 		}
-		
+
 		this.scoreHome = scoreHome;
 		this.scoreVisiting = scoreVisiting;
 	}
@@ -66,27 +65,18 @@ public class Game {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		Game other = (Game) obj;
 		if (homeTeam == null) {
-			if (other.homeTeam != null)
-				return false;
-		} else if (!homeTeam.equals(other.homeTeam))
-			return false;
-		if (scoreHome != other.scoreHome)
-			return false;
-		if (scoreVisiting != other.scoreVisiting)
-			return false;
+			if (other.homeTeam != null) return false;
+		} else if (!homeTeam.equals(other.homeTeam)) return false;
+		if (scoreHome != other.scoreHome) return false;
+		if (scoreVisiting != other.scoreVisiting) return false;
 		if (visitingTeam == null) {
-			if (other.visitingTeam != null)
-				return false;
-		} else if (!visitingTeam.equals(other.visitingTeam))
-			return false;
+			if (other.visitingTeam != null) return false;
+		} else if (!visitingTeam.equals(other.visitingTeam)) return false;
 		return true;
 	}
 
@@ -116,11 +106,10 @@ public class Game {
 	public int getScoreVisiting() {
 		return scoreVisiting;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Game [homeTeam=" + homeTeam + ", visitingTeam=" + visitingTeam + ", scoreHome=" + scoreHome
 				+ ", scoreVisiting=" + scoreVisiting + "]";
 	}
-
 }
