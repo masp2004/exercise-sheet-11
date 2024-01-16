@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * Represents a sports tournament with a set of teams and a list of games between the teams.
@@ -49,6 +50,9 @@ public class Tournament {
 		return newTeam;
 	}
 
+	/*@
+	  @ requires getGames().stream().noneMatch(g -> g.getHomeTeam().equals(homeTeam) && g.getVisitingTeam().equals(visitingTeam));
+	 */
 	/**
 	 * Create a new game between the given home team and visiting team.
 	 *
@@ -59,6 +63,7 @@ public class Tournament {
 	 * @return the game between the two teams
 	 */
 	public Game createGame(final Team homeTeam, final Team vistingTeam) {
+		assert getGames().stream().noneMatch(g -> g.getHomeTeam().equals(homeTeam) && g.getVisitingTeam().equals(vistingTeam));
 		final Game newGame = new Game(homeTeam, vistingTeam);
 		this.games.add(newGame);
 		return newGame;
@@ -91,7 +96,40 @@ public class Tournament {
 		return new ArrayList<Team>(this.teams.values());
 	}
 
-	// TODO add operations for presence exercise 1 (c) and (d) here.
+	public void createGamePlan() {
+		List<Team> teams = getTeams();
+
+		if (teams.size() < 2) {
+			return;
+		}
+
+		for (int i = 0; i < teams.size() - 1; i++) {
+			Team homeTeam = teams.get(i);
+
+			for (int j = i + 1; j < teams.size(); j++) {
+				Team visitingTeam = teams.get(j);
+
+				assert getGames().stream().noneMatch(g ->
+						(g.getHomeTeam().equals(homeTeam) && g.getVisitingTeam().equals(visitingTeam)) ||
+								(g.getHomeTeam().equals(visitingTeam) && g.getVisitingTeam().equals(homeTeam))
+				);
+
+				Game newGame = new Game(homeTeam, visitingTeam);
+				getGames().add(newGame);
+			}
+		}
+	}
+
+	public void generateGameResults() {
+		Random random = new Random();
+
+		for (Game game : getGames()) {
+			int scoreHome = random.nextInt(5);
+			int scoreVisiting = random.nextInt(5);
+
+			game.storeResult(scoreHome, scoreVisiting);
+		}
+	}
 
 	@Override
 	public int hashCode() {
