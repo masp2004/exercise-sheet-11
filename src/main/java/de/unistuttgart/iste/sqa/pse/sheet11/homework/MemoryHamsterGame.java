@@ -5,6 +5,8 @@ import java.util.*;
 
 /**
  * Class to implement homework exercises 1, 2 and 3 of sheet 11.
+ *
+ * @author Marvin Spiegel, Ismail Ratni
  */
 public class MemoryHamsterGame extends SimpleHamsterGame {
 
@@ -18,7 +20,6 @@ public class MemoryHamsterGame extends SimpleHamsterGame {
 		this.loadTerritoryFromResourceFile("/territories/order.ter");
 		this.displayInNewGameWindow();
 		game.startGame();
-		grainQueue = new LinkedList<>();
 	}
 
 	@Override
