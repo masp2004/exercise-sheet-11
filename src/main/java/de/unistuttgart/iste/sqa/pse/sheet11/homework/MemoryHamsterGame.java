@@ -1,11 +1,7 @@
 package de.unistuttgart.iste.sqa.pse.sheet11.homework;
 
 import de.hamstersimulator.objectsfirst.external.simple.game.SimpleHamsterGame;
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.PriorityQueue;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Class to implement homework exercises 1, 2 and 3 of sheet 11.
@@ -13,6 +9,7 @@ import java.util.Comparator;
 public class MemoryHamsterGame extends SimpleHamsterGame {
 
 	private Queue<Integer> grainQueue;
+
 	/**
 	 * Creates a new MemoryHamsterGame.<br>
 	 * Do not modify!
@@ -31,59 +28,226 @@ public class MemoryHamsterGame extends SimpleHamsterGame {
 		this.reverseOrder();
 		this.sort();
 
-		Comparator<Integer> descendingComparator = (Integer a, Integer b) -> Integer.compare(b, a);
+		Comparator<Integer> descendingComparator = (a, b) -> Integer.compare(b, a);
 		this.sort(descendingComparator);
 	}
 
+
 	/**
-	 * This method reverses the order of the grains in the territory.
+	 * This method reverses the order of the grains in the territory using a Queue.
 	 */
 	private void reverseOrder() {
-		Queue<Integer> reversedQueue = new LinkedList<>();
+		Queue<Integer> grainCounts = new LinkedList<>();
 
-		while (!grainQueue.isEmpty()) {
-			reversedQueue.add(reversedQueue.poll());
+		/*@ loop_invariant paule.frontIsClear();
+		  @ decreasing number of grains available on current field
+		  @*/
+		while (paule.frontIsClear()) {
+			paule.move();
+			int currentGrainCount = 0;
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			while (paule.grainAvailable()) {
+				paule.pickGrain();
+				currentGrainCount++;
+			}
+
+			grainCounts.add(currentGrainCount);
 		}
-		while (!reversedQueue.isEmpty()) {
-			reversedQueue.add(reversedQueue.poll());
+
+		paule.turnLeft();
+		paule.turnLeft();
+
+		/*@ loop_invariant paule.frontIsClear();
+		  @ decreasing number of grains available on current field
+		  @*/
+		while (!grainCounts.isEmpty()) {
+			int currentGrainCount = grainCounts.poll();
+
+			if (paule.frontIsClear()) {
+				paule.move();
+			}
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			for (int i = 0; i < currentGrainCount; i++) {
+				paule.putGrain();
+			}
+
 		}
+
+		paule.turnLeft();
+		paule.turnLeft();
 	}
 
 	/**
-	 * This method sorts the grains in the territory in ascending order.
+	 * This method places the grains in the original order on the way back to the initial position.
 	 */
 	private void inOrder() {
-		Stack<Integer> stack = new Stack<>();
+		Stack<Integer> grainCounts = new Stack<>();
 
-		while (!grainQueue.isEmpty()) {
-			stack.push(grainQueue.poll());
+		/*@ loop_invariant paule.frontIsClear();
+		  @ decreasing number of grains available on current field
+		  @*/
+		while (paule.frontIsClear()) {
+			paule.move();
+			int currentGrainCount = 0;
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			while (paule.grainAvailable()) {
+				paule.pickGrain();
+				currentGrainCount++;
+			}
+
+			grainCounts.push(currentGrainCount);
 		}
-		while (!stack.isEmpty()) {
-			grainQueue.add(stack.pop());
+
+		paule.turnLeft();
+		paule.turnLeft();
+
+		/*@ loop_invariant grainCounts.size() > 0;
+		  @ decreasing number of grains available on current field
+		  @*/
+		while (!grainCounts.isEmpty()) {
+			int currentGrainCount = grainCounts.pop();
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			for (int i = 0; i < currentGrainCount; i++) {
+				paule.putGrain();
+			}
+
+			if (paule.frontIsClear()) {
+				paule.move();
+			}
 		}
+
+		paule.turnLeft();
+		paule.turnLeft();
 	}
 
 	/**
-	 * This method sorts the grains in the territory in ascending order.
+	 * Makes paule sort the Grains in descending order from right to left perspective.
 	 */
 	private void sort() {
-		PriorityQueue<Integer> sortedQueue = new PriorityQueue<>(grainQueue);
+		List<Integer> pickedGrainsList = new ArrayList<>();
 
-		while (!sortedQueue.isEmpty()) {
-			grainQueue.add(sortedQueue.poll());
+		while(paule.frontIsClear()){
+			int pickedGrains = 0;
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			while(paule.grainAvailable()){
+				paule.pickGrain();
+				pickedGrains++;
+			}
+
+			pickedGrainsList.add(pickedGrains);
+			paule.move();
 		}
+
+		int pickedGrains = 0;
+
+		/*@ loop_invariant paule.grainAvailable();
+		  @ decreasing number of grains available on current field
+		  @*/
+		while(paule.grainAvailable()){
+			paule.pickGrain();
+			pickedGrains++;
+		}
+
+		pickedGrainsList.add(pickedGrains);
+		Collections.sort(pickedGrainsList);
+
+		paule.turnLeft();
+		paule.turnLeft();
+
+		/*@ loop_invariant pickedGrainsList.size() > 0;
+		  @ decreasing number of grains available on current field
+		  @*/
+		for(int i = 0; i < pickedGrainsList.size(); i++){
+
+			/*@ loop_invariant paule.grainAvailable();
+			  @ decreasing number of grains available on current field
+			  @*/
+			for (int j = pickedGrainsList.get(i); j > 0; j--){
+				paule.putGrain();
+			}
+			if (!(i == (pickedGrainsList.size()) + - 1 )) {
+				paule.move();
+			}
+		}
+		paule.turnLeft();
+		paule.turnLeft();
 	}
 
 	/**
-	 * This method sorts the grains in the territory in ascending order.
+	 * This method sorts the grains on the way back to the initial position using the provided Comparator.
 	 * @param comparator The comparator to use for sorting.
 	 */
 	private void sort(Comparator<Integer> comparator) {
-		PriorityQueue<Integer> sortedQueue = new PriorityQueue<>(comparator);
-		sortedQueue.addAll(grainQueue);
+		List<Integer> pickedGrainsList = new ArrayList<>();
 
-		while (!sortedQueue.isEmpty()) {
-			grainQueue.add(sortedQueue.poll());
+		/*@ loop_invariant paule.frontIsClear();
+	  	  @ decreasing number of grains available on the current field
+	 	@*/
+		while(paule.frontIsClear()){
+			int pickedGrains = 0;
+
+        /*@ loop_invariant paule.grainAvailable();
+          @ decreasing number of grains available on the current field
+          @*/
+			while(paule.grainAvailable()){
+				paule.pickGrain();
+				pickedGrains++;
+			}
+
+			pickedGrainsList.add(pickedGrains);
+			paule.move();
 		}
+
+		int pickedGrains = 0;
+
+    /*@ loop_invariant paule.grainAvailable();
+      @ decreasing number of grains available on the current field
+      @*/
+		while(paule.grainAvailable()){
+			paule.pickGrain();
+			pickedGrains++;
+		}
+
+		pickedGrainsList.add(pickedGrains);
+
+		pickedGrainsList.sort(comparator);
+
+		paule.turnLeft();
+		paule.turnLeft();
+
+    /*@ loop_invariant pickedGrainsList.size() > 0;
+      @ decreasing number of grains available on the current field
+      @*/
+		for(int i = 0; i < pickedGrainsList.size(); i++){
+
+        /*@ loop_invariant paule.grainAvailable();
+          @ decreasing number of grains available on the current field
+          @*/
+			for (int j = pickedGrainsList.get(i); j > 0; j--){
+				paule.putGrain();
+			}
+			if (!(i == (pickedGrainsList.size()) + - 1 )) {
+				paule.move();
+			}
+		}
+
+		paule.turnLeft();
+		paule.turnLeft();
 	}
+
 }
